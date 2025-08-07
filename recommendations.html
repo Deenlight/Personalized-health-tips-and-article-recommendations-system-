@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Recommendations</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            background-color: #333;
+        }
+        .navbar a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .recommendation-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .recommendation-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #222;
+            color: white;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Personalized Health Tips & Articles</h1>
+        <p>Curated just for you, based on your preferences</p>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand text-white" href="/">Home</a>
+            <div class="d-flex">
+                <a class="nav-link text-white" href="/update_preferences">Update Preferences</a>
+                <a class="nav-link text-white" href="/logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Recommendations Section -->
+    <div class="recommendation-container">
+        <h2 class="text-center">Your Recommendations</h2>
+        
+        {% if recommendations %}
+            {% for recommendation in recommendations %}
+            <div class="recommendation-item">
+                <h3>{{ recommendation['title'] }}</h3>
+                <p>{{ recommendation['content'] }}</p>
+                <a href="{{ recommendation['url'] }}" target="_blank">Read more</a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-center text-danger">No recommendations available. Please update your preferences!</p>
+        {% endif %}
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>Quick Links: 
+            <a href="/">Home</a> | 
+            <a href="/about">About</a> | 
+            <a href="/contact">Contact</a>
+        </p>
+        <p>&copy; 2025 Health Tips System</p>
+    </div>
+</body>
+</html>

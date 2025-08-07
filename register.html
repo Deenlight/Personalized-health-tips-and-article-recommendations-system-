@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+            max-width: 600px;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #4c95af;
+        }
+        .btn-primary {
+            background-color: #4c5a68;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #39636a;
+        }
+        .login-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .login-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Register</h1>
+        <div class="form-container shadow-lg">
+            <form action="/register" method="POST">
+                <!-- CSRF Token -->
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+
+                <!-- Username -->
+                <div class="mb-3">
+                    <label for="username" class="form-label">Full Name:</label>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter your full name" required>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+                </div>
+
+                <!-- Health Preferences -->
+                <div class="mb-3">
+                    <label class="form-label">Select Your Health Preferences:</label>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="fitness" name="preferences" value="Fitness">
+                                <label for="fitness" class="form-check-label">Fitness</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="nutrition" name="preferences" value="Nutrition">
+                                <label for="nutrition" class="form-check-label">Nutrition</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="mental-health" name="preferences" value="Mental Health">
+                                <label for="mental-health" class="form-check-label">Mental Health</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="chronic-illness" name="preferences" value="Chronic Illness">
+                                <label for="chronic-illness" class="form-check-label">Chronic Illness</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="sleep-health" name="preferences" value="Sleep Health">
+                                <label for="sleep-health" class="form-check-label">Sleep Health</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="immunity" name="preferences" value="Immunity">
+                                <label for="immunity" class="form-check-label">Immunity</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="stress-relief" name="preferences" value="Stress Relief">
+                                <label for="stress-relief" class="form-check-label">Stress Relief</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="dietary-tips" name="preferences" value="Dietary Tips">
+                                <label for="dietary-tips" class="form-check-label">Dietary Tips</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exercise" name="preferences" value="Exercise">
+                                <label for="exercise" class="form-check-label">Exercise</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="healthy-lifestyle" name="preferences" value="Healthy Lifestyle">
+                                <label for="healthy-lifestyle" class="form-check-label">Healthy Lifestyle</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </form>
+
+            <!-- Login Link -->
+            <div class="login-link">
+                Already have an account? <a href="/login">Log in here</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
